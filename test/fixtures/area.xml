@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+  <node id="1911003422" version="1" changeset="13078014" lat="44.6639106" lon="-73.0183662" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:23Z"/>
+  <node id="1911003505" version="1" changeset="13078014" lat="44.663365" lon="-73.0184144" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:25Z"/>
+  <node id="1911003534" version="1" changeset="13078014" lat="44.6631742" lon="-73.0151529" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:26Z"/>
+  <node id="1911003542" version="1" changeset="13078014" lat="44.6631857" lon="-73.0149866" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:26Z"/>
+  <node id="1911003434" version="1" changeset="13078014" lat="44.6632593" lon="-73.0149372" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:24Z"/>
+  <node id="1911003725" version="1" changeset="13078014" lat="44.6633765" lon="-73.0149061" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:29Z"/>
+  <node id="1911003400" version="1" changeset="13078014" lat="44.6641548" lon="-73.0149544" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:23Z"/>
+  <node id="1911003459" version="1" changeset="13078014" lat="44.6642311" lon="-73.0152709" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:24Z"/>
+  <node id="1911003483" version="1" changeset="13078014" lat="44.6640861" lon="-73.0163599" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:25Z"/>
+  <node id="1911003477" version="1" changeset="13078014" lat="44.6639881" lon="-73.0163749" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:24Z"/>
+  <node id="1911003428" version="1" changeset="13078014" lat="44.6639144" lon="-73.0164457" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:24Z"/>
+  <node id="1911003481" version="1" changeset="13078014" lat="44.6640251" lon="-73.0181462" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:25Z"/>
+  <node id="1911003614" version="1" changeset="13078014" lat="44.6640251" lon="-73.018275" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:27Z"/>
+  <node id="1911003629" version="1" changeset="13078014" lat="44.6639945" lon="-73.0183447" user="jfire" uid="67236" visible="true" timestamp="2012-09-12T04:59:27Z"/>
+  <way id="180655479" visible="true" timestamp="2012-09-12T04:59:32Z" version="1" changeset="13078014" user="jfire" uid="67236">
+    <nd ref="1911003422"/>
+    <nd ref="1911003505"/>
+    <nd ref="1911003534"/>
+    <nd ref="1911003542"/>
+    <nd ref="1911003434"/>
+    <nd ref="1911003725"/>
+    <nd ref="1911003400"/>
+    <nd ref="1911003459"/>
+    <nd ref="1911003483"/>
+    <nd ref="1911003477"/>
+    <nd ref="1911003428"/>
+    <nd ref="1911003481"/>
+    <nd ref="1911003614"/>
+    <nd ref="1911003629"/>
+    <nd ref="1911003422"/>
+    <tag k="leisure" v="pitch"/>
+  </way>
+</osm>

@@ -1,0 +1,25 @@
+{
+  "author": "John Firebaugh <john.firebaugh@gmail.com>",
+  "name": "leaflet-osm",
+  "description": "OpenStreetMap plugin for Leaflet",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "main": "./leaflet-osm.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": "~0.8.4"
+  },
+  "dependencies": {
+    "leaflet": "git://github.com/jfirebaugh/Leaflet.git"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "jsdom": "*"
+  },
+  "optionalDependencies": {}
+}
