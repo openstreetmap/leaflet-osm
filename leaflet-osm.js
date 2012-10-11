@@ -1,7 +1,8 @@
 L.OSM = L.FeatureGroup.extend({
   options: {
     areaTags: ['area', 'building', 'leisure', 'tourism', 'ruins', 'historic', 'landuse', 'military', 'natural', 'sport'],
-    uninterestingTags: ['source', 'source_ref', 'source:ref', 'history', 'attribution', 'created_by', 'tiger:county', 'tiger:tlid', 'tiger:upload_uuid']
+    uninterestingTags: ['source', 'source_ref', 'source:ref', 'history', 'attribution', 'created_by', 'tiger:county', 'tiger:tlid', 'tiger:upload_uuid'],
+    styles: {}
   },
 
   initialize: function (xml, options) {
@@ -26,18 +27,26 @@ L.OSM = L.FeatureGroup.extend({
         latLngs[j] = nodes[way.nodes[j]].latLng;
       }
 
+      var layer;
+
       if (this.isWayArea(way)) {
         latLngs.pop(); // Remove last == first.
-        L.polygon(latLngs).addTo(this);
+        layer = L.polygon(latLngs, this.options.styles.area);
       } else {
-        L.polyline(latLngs).addTo(this);
+        layer = L.polyline(latLngs, this.options.styles.way);
       }
+
+      layer.addTo(this);
+      layer.feature = way;
     }
 
     for (var node_id in nodes) {
       var node = nodes[node_id];
       if (this.interestingNode(node)) {
-        L.circleMarker(node.latLng, {radius: 6}).addTo(this);
+        var layer = L.circleMarker(node.latLng, this.options.styles.node);
+
+        layer.addTo(this);
+        layer.feature = node;
       }
     }
   },
@@ -71,10 +80,12 @@ L.Util.extend(L.OSM, {
   getNodes: function (xml) {
     var result = {};
 
-    var node_list = xml.getElementsByTagName("node");
-    for (var i = 0; i < node_list.length; i++) {
-      var node = node_list[i];
-      result[node.getAttribute("id")] = {
+    var nodes = xml.getElementsByTagName("node");
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i], id = node.getAttribute("id");
+      result[id] = {
+        id: id,
+        type: "node",
         latLng: L.latLng(node.getAttribute("lat"),
                          node.getAttribute("lon"),
                          true),
@@ -88,19 +99,19 @@ L.Util.extend(L.OSM, {
   getWays: function (xml) {
     var result = [];
 
-    var way_list = xml.getElementsByTagName("way");
-    for (var i = 0; i < way_list.length; i++) {
-      var way = way_list[i],
-        node_list = way.getElementsByTagName("nd");
+    var ways = xml.getElementsByTagName("way");
+    for (var i = 0; i < ways.length; i++) {
+      var way = ways[i], nds = way.getElementsByTagName("nd");
 
       var way_object = {
         id: way.getAttribute("id"),
-        nodes: new Array(node_list.length),
+        type: "way",
+        nodes: new Array(nds.length),
         tags: this.getTags(way)
       };
 
-      for (var j = 0; j < node_list.length; j++) {
-        way_object.nodes[j] = node_list[j].getAttribute("ref");
+      for (var j = 0; j < nds.length; j++) {
+        way_object.nodes[j] = nds[j].getAttribute("ref");
       }
 
       result.push(way_object);
