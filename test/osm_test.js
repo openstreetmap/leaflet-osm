@@ -10,6 +10,34 @@ require('..');
 
 chai.should();
 
+describe("L.OSM.Mapnik", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.Mapnik()._url.should.eq('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+  });
+});
+
+describe("L.OSM.CycleMap", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.CycleMap()._url.should.eq('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png');
+  });
+});
+
+describe("L.OSM.TransportMap", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.TransportMap()._url.should.eq('http://{s}.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png');
+  });
+});
+
+describe("L.OSM.MapQuestOpen", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.MapQuestOpen()._url.should.eq('http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png');
+  });
+
+  it("has the appropriate attribution", function () {
+    new L.OSM.MapQuestOpen().getAttribution().should.contain('MapQuest');
+  });
+});
+
 describe("L.OSM.DataLayer", function () {
   function fixture(name) {
     var fs = require("fs"),
