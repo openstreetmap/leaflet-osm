@@ -100,4 +100,18 @@ describe("L.OSM.DataLayer", function () {
     var osm = new L.OSM.DataLayer(fixture("node"), {styles: {node: {color: "blue"}}});
     layers(osm)[0].options.should.have.property("color", "blue");
   });
+
+  describe("#buildFeatures", function () {
+    it("builds a node object", function () {
+      var features = new L.OSM.DataLayer().buildFeatures(fixture("node"));
+      features.length.should.eq(1);
+      features[0].type.should.eq("node");
+    });
+
+    it("builds a way object", function () {
+      var features = new L.OSM.DataLayer().buildFeatures(fixture("way"));
+      features.length.should.eq(1);
+      features[0].type.should.eq("way");
+    });
+  });
 });
