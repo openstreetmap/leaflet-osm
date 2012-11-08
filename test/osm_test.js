@@ -114,4 +114,22 @@ describe("L.OSM.DataLayer", function () {
       features[0].type.should.eq("way");
     });
   });
+
+  describe("#interestingNode", function () {
+    var layer = new L.OSM.DataLayer();
+
+    it("returns true when the node is not in any ways", function () {
+      layer.interestingNode({}, []).should.be.true;
+    });
+
+    it("returns true when the node has an interesting tag", function () {
+      var node = {tags: {interesting: true}};
+      layer.interestingNode(node, [{nodes: [node]}]).should.be.true;
+    });
+
+    it("returns false when the node is used in a way and has uninteresting tags", function () {
+      var node = {tags: {source: 'who cares?'}};
+      layer.interestingNode(node, [{nodes: [node]}]).should.be.false;
+    });
+  });
 });
