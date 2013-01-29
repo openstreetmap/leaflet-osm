@@ -28,9 +28,6 @@ $.ajax({
 });
 ```
 
-Well, this would work if openstreetmap.org's API supported CORS. Right now it'll
-only work if your code is running on openstreetmap.org itself.
-
 ## Contributing
 
 leaflet-osm is tested with node.js using [mocha](http://visionmedia.github.com/mocha/) and [chai](http://chaijs.com/):
