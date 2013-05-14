@@ -14,7 +14,7 @@
     "node": "~0.8.4"
   },
   "dependencies": {
-    "leaflet": "git://github.com/jfirebaugh/Leaflet.git"
+    "leaflet": "git://github.com/Leaflet/Leaflet.git"
   },
   "devDependencies": {
     "mocha": "*",
