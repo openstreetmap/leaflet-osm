@@ -119,17 +119,22 @@ describe("L.OSM.DataLayer", function () {
     var layer = new L.OSM.DataLayer();
 
     it("returns true when the node is not in any ways", function () {
-      layer.interestingNode({}, []).should.be.true;
+      layer.interestingNode({}, [], []).should.be.true;
     });
 
     it("returns true when the node has an interesting tag", function () {
       var node = {tags: {interesting: true}};
-      layer.interestingNode(node, [{nodes: [node]}]).should.be.true;
+      layer.interestingNode(node, [{nodes: [node]}], []).should.be.true;
     });
 
     it("returns false when the node is used in a way and has uninteresting tags", function () {
       var node = {tags: {source: 'who cares?'}};
-      layer.interestingNode(node, [{nodes: [node]}]).should.be.false;
+      layer.interestingNode(node, [{nodes: [node]}], []).should.be.false;
+    });
+
+    it("returns true when the node is used in a way and is used in a relation", function () {
+      var node = {};
+      layer.interestingNode(node, [{nodes: [node]}], [{members: [node]}]).should.be.true;
     });
   });
 });
