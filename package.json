@@ -2,7 +2,7 @@
   "author": "John Firebaugh <john.firebaugh@gmail.com>",
   "name": "leaflet-osm",
   "description": "OpenStreetMap plugin for Leaflet",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "url": ""
   },
