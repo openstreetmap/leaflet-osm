@@ -80,6 +80,12 @@ describe("L.OSM.DataLayer", function () {
     layers(osm)[0].should.be.an.instanceof(L.CircleMarker);
   });
 
+  it("creates a Rectangle for a changeset", function () {
+    var osm = new L.OSM.DataLayer(fixture("changeset"));
+    layers(osm).length.should.eq(1);
+    layers(osm)[0].should.be.an.instanceof(L.Rectangle);
+  });
+
   it("sets the feature property on a layer", function () {
     var osm = new L.OSM.DataLayer(fixture("node"));
     layers(osm)[0].feature.should.have.property("type", "node");
