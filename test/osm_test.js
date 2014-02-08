@@ -20,11 +20,19 @@ describe("L.OSM.CycleMap", function () {
   it("has the appropriate URL", function () {
     new L.OSM.CycleMap()._url.should.eq('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png');
   });
+
+  it("has the appropriate attribution", function () {
+    new L.OSM.CycleMap().getAttribution().should.contain('Andy Allan');
+  });
 });
 
 describe("L.OSM.TransportMap", function () {
   it("has the appropriate URL", function () {
     new L.OSM.TransportMap()._url.should.eq('http://{s}.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png');
+  });
+
+  it("has the appropriate attribution", function () {
+    new L.OSM.TransportMap().getAttribution().should.contain('Andy Allan');
   });
 });
 
