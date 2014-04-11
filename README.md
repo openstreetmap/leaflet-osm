@@ -9,14 +9,14 @@ on the base map.
 
 ### Tile Layers
 
-```
+```js
 new L.OSM.Mapnik().addTo(map);
 // or L.OSM.CycleMap, L.OSM.TransportMap, or L.OSM.MapQuestOpen
 ```
 
 ### Data Layer
 
-```
+```js
 $.ajax({
   url: "http://www.openstreetmap.org/api/0.6/node/164979149",
   // or "http://www.openstreetmap.org/api/0.6/way/52477381/full"
@@ -32,7 +32,7 @@ $.ajax({
 
 leaflet-osm is tested with node.js using [mocha](http://visionmedia.github.com/mocha/) and [chai](http://chaijs.com/):
 
-```
+```bash
 $ npm install -g mocha
 $ npm install
 $ mocha
