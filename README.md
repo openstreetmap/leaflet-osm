@@ -11,7 +11,11 @@ on the base map.
 
 ```js
 new L.OSM.Mapnik().addTo(map);
-// or L.OSM.CycleMap, L.OSM.TransportMap, or L.OSM.MapQuestOpen
+
+// L.OSM.CycleMap and L.OSM.TransportMap require an API key:
+// http://www.thunderforest.com/blog/apikeys-now-available/
+new L.OSM.CycleMap({apikey: '...'}).addTo(map);
+new L.OSM.TransportMap({apikey: '...'}).addTo(map);
 ```
 
 ### Data Layer
