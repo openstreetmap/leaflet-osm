@@ -68,7 +68,8 @@ L.OSM.DataLayer = L.FeatureGroup.extend({
   options: {
     areaTags: ['area', 'building', 'leisure', 'tourism', 'ruins', 'historic', 'landuse', 'military', 'natural', 'sport'],
     uninterestingTags: ['source', 'source_ref', 'source:ref', 'history', 'attribution', 'created_by', 'tiger:county', 'tiger:tlid', 'tiger:upload_uuid'],
-    styles: {}
+    styles: {},
+    skipNodes: false
   },
 
   initialize: function (xml, options) {
@@ -92,6 +93,9 @@ L.OSM.DataLayer = L.FeatureGroup.extend({
       if (feature.type === "changeset") {
         layer = L.rectangle(feature.latLngBounds, this.options.styles.changeset);
       } else if (feature.type === "node") {
+        if (this.options.skipNodes) {
+          continue;
+        }
         layer = L.circleMarker(feature.latLng, this.options.styles.node);
       } else {
         var latLngs = new Array(feature.nodes.length);
