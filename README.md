@@ -34,7 +34,7 @@ $.ajax({
 
 ## Contributing
 
-leaflet-osm is tested with node.js using [mocha](http://visionmedia.github.com/mocha/) and [chai](http://chaijs.com/):
+leaflet-osm is tested with node.js using [mocha](http://mochajs.org/) and [chai](http://chaijs.com/):
 
 ```bash
 $ npm install -g mocha
