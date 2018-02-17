@@ -41,18 +41,6 @@ L.OSM.TransportMap = L.OSM.TileLayer.extend({
   }
 });
 
-L.OSM.MapQuestOpen = L.OSM.TileLayer.extend({
-  options: {
-    url: document.location.protocol === 'https:' ?
-      'https://otile{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png' :
-      'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-    subdomains: '1234',
-    attribution: '© <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. ' + document.location.protocol === 'https:' ?
-      'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="https://developer.mapquest.com/content/osm/mq_logo.png">' :
-      'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">'
-  }
-});
-
 L.OSM.HOT = L.OSM.TileLayer.extend({
   options: {
     url: document.location.protocol === 'https:' ?
