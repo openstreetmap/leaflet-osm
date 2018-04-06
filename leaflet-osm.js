@@ -21,27 +21,21 @@ L.OSM.Mapnik = L.OSM.TileLayer.extend({
 
 L.OSM.CycleMap = L.OSM.TileLayer.extend({
   options: {
-    url: document.location.protocol === 'https:' ?
-      'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}' :
-      'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}',
+    url: 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}',
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. Tiles courtesy of <a href="http://www.thunderforest.com/" target="_blank">Andy Allan</a>'
   }
 });
 
 L.OSM.TransportMap = L.OSM.TileLayer.extend({
   options: {
-    url:  document.location.protocol === 'https:' ?
-      'https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}{r}.png?apikey={apikey}' :
-      'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}{r}.png?apikey={apikey}',
+    url: 'https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}{r}.png?apikey={apikey}',
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. Tiles courtesy of <a href="http://www.thunderforest.com/" target="_blank">Andy Allan</a>'
   }
 });
 
 L.OSM.HOT = L.OSM.TileLayer.extend({
   options: {
-    url: document.location.protocol === 'https:' ?
-      'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png' :
-      'http://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+    url: 'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
     maxZoom: 20,
     subdomains: 'abc',
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
