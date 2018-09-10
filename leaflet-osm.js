@@ -47,7 +47,8 @@ L.OSM.HOT = L.OSM.TileLayer.extend({
 L.OSM.GPS = L.OSM.TileLayer.extend({
   options: {
     url: 'https://gps-{s}.tile.openstreetmap.org/lines/{z}/{x}/{y}.png',
-    maxZoom: 20,
+    maxZoom: 21,
+    maxNativeZoom: 20,
     subdomains: 'abc'
   }
 });
