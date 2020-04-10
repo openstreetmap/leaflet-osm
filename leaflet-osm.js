@@ -1,25 +1,8 @@
 L.OSM = {};
 
-var h2 = false;
-// tile.openstreetmap.org supports http/2 where sharding makes no sense.
-// Use only one subdomain if we're using http/2
-if (
-    (window.performance && window.performance.getEntries      && performance.getEntries()[0].nextHopProtocol == 'h2') ||
-    (window.performance && performance.timing.nextHopProtocol && performance.timing.nextHopProtocol          == 'h2') ||
-    (window.chrome      && window.chrome.loadTimes            && window.chrome.loadTimes().connectionInfo    == 'h2')
-) {
-    h2 = true;
-}
-
-if (h2) {
-    var osmtileurl = 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png';
-} else {
-    var osmtileurl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-}
-
 L.OSM.TileLayer = L.TileLayer.extend({
   options: {
-    url: osmtileurl,
+    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
   },
 
@@ -61,14 +44,9 @@ L.OSM.HOT = L.OSM.TileLayer.extend({
   }
 });
 
-if(h2) {
-    var osmgpsurl = 'https://gps-a.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
-} else {
-    var osmgpsurl = 'https://gps-{s}.tile.openstreetmap.org/lines/{z}/{x}/{y}.png';
-}
 L.OSM.GPS = L.OSM.TileLayer.extend({
   options: {
-    url: osmgpsurl,
+    url: 'https://gps.tile.openstreetmap.org/lines/{z}/{x}/{y}.png',
     maxZoom: 21,
     maxNativeZoom: 20,
     subdomains: 'abc'
