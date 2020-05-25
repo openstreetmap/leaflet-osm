@@ -2,7 +2,7 @@ leaflet-osm is a [Leaflet](http://leaflet.cloudmade.com/) plugin for rendering
 tile and vector data from openstreetmap.org.
 
 For example, the openstreetmap.org website could use it to highlight a particular
-[way](http://www.openstreetmap.org/?way=368033990) or [node](http://www.openstreetmap.org/?node=5369192667)
+[way](http://www.openstreetmap.org/way/368033990) or [node](http://www.openstreetmap.org/node/5369192667)
 on the base map.
 
 ## Usage Examples
