@@ -13,13 +13,13 @@ chai.should();
 
 describe("L.OSM.Mapnik", function () {
   it("has the appropriate URL", function () {
-    new L.OSM.Mapnik()._url.should.eq('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    new L.OSM.Mapnik()._url.should.eq('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
   });
 });
 
 describe("L.OSM.CycleMap", function () {
   it("has the appropriate URL", function () {
-    new L.OSM.CycleMap()._url.should.eq('http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png');
+    new L.OSM.CycleMap()._url.should.eq('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}');
   });
 
   it("has the appropriate attribution", function () {
@@ -29,7 +29,7 @@ describe("L.OSM.CycleMap", function () {
 
 describe("L.OSM.TransportMap", function () {
   it("has the appropriate URL", function () {
-    new L.OSM.TransportMap()._url.should.eq('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png');
+    new L.OSM.TransportMap()._url.should.eq('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}{r}.png?apikey={apikey}');
   });
 
   it("has the appropriate attribution", function () {
