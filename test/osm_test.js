@@ -37,16 +37,6 @@ describe("L.OSM.TransportMap", function () {
   });
 });
 
-describe("L.OSM.MapQuestOpen", function () {
-  it("has the appropriate URL", function () {
-    new L.OSM.MapQuestOpen()._url.should.eq('http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png');
-  });
-
-  it("has the appropriate attribution", function () {
-    new L.OSM.MapQuestOpen().getAttribution().should.contain('MapQuest');
-  });
-});
-
 describe("L.OSM.DataLayer", function () {
   function fixture(name) {
     var fs = require("fs"),
