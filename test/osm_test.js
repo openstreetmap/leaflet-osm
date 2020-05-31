@@ -1,7 +1,8 @@
 var chai  = require('chai'),
-    jsdom = require("jsdom");
+    jsdom = require("jsdom"),
+    dom = new jsdom.JSDOM;
 
-global.window    = jsdom.jsdom().createWindow();
+global.window    = dom.window;
 global.document  = window.document;
 global.navigator = window.navigator;
 
