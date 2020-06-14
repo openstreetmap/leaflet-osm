@@ -37,6 +37,16 @@ describe("L.OSM.TransportMap", function () {
   });
 });
 
+describe("L.OSM.OPNVKarte", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.OPNVKarte()._url.should.eq('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png');
+  });
+
+  it("has the appropriate attribution", function () {
+    new L.OSM.OPNVKarte().getAttribution().should.contain('MeMoMaps');
+  });
+});
+
 describe("L.OSM.DataLayer", function () {
   function fixture(name) {
     var fs = require("fs"),
