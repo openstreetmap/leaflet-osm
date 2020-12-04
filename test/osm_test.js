@@ -17,6 +17,16 @@ describe("L.OSM.Mapnik", function () {
   });
 });
 
+describe("L.OSM.CyclOSM", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.CyclOSM()._url.should.eq('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png');
+  });
+
+  it("has the appropriate attribution", function () {
+    new L.OSM.CyclOSM().getAttribution().should.contain('France');
+  });
+});
+
 describe("L.OSM.CycleMap", function () {
   it("has the appropriate URL", function () {
     new L.OSM.CycleMap()._url.should.eq('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}');
