@@ -10,9 +10,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "engines": {
-    "node": "~0.8.4"
-  },
   "dependencies": {
     "leaflet": "0.6"
   },
