@@ -57,6 +57,16 @@ describe("L.OSM.OPNVKarte", function () {
   });
 });
 
+describe("L.OSM.TracestrackTopo", function () {
+  it("has the appropriate URL", function () {
+    new L.OSM.TracestrackTopo()._url.should.eq('https://tile.tracestrack.com/topo__/{z}/{x}/{y}.png?key={apikey}');
+  });
+
+  it("has the appropriate attribution", function () {
+    new L.OSM.TracestrackTopo().getAttribution().should.contain('Tracestrack');
+  });
+});
+
 describe("L.OSM.DataLayer", function () {
   function fixture(name) {
     var fs = require("fs"),
