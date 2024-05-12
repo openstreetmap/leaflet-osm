@@ -37,9 +37,8 @@ $.ajax({
 leaflet-osm is tested with node.js using [mocha](http://mochajs.org/) and [chai](http://chaijs.com/):
 
 ```bash
-$ npm install -g mocha
 $ npm install
-$ mocha
+$ npm test
 ```
 
 ## License
