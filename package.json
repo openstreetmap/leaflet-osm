@@ -17,7 +17,7 @@
     "leaflet": "0.6"
   },
   "devDependencies": {
-    "mocha": "^7.2.0",
+    "mocha": "^10.7.3",
     "chai": "^4.2.0",
     "jsdom": "^16.2.2"
   },
