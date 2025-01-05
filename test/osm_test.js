@@ -146,54 +146,54 @@ describe("L.OSM.DataLayer", function () {
     it("can be added to the map", function () {
       (new L.OSM.DataLayer(null, {asynchronous: true})).addTo(this.map);
     });
-  
+
     it("creates a Polyline for a way", async function () {
       var osm = new L.OSM.DataLayer(fixture("way"), {asynchronous: true});
       await sleep(1);
       layers(osm).length.should.eq(21);
       layers(osm)[20].should.be.an.instanceof(L.Polyline);
     });
-  
+
     it("creates a Polygon for an area", async function () {
       var osm = new L.OSM.DataLayer(fixture("area"), {asynchronous: true});
       await sleep(1);
       layers(osm).length.should.eq(15);
       layers(osm)[14].should.be.an.instanceof(L.Polygon);
     });
-  
+
     it("creates a CircleMarker for an interesting node", async function () {
       var osm = new L.OSM.DataLayer(fixture("node"), {asynchronous: true});
       await sleep(1);
       layers(osm).length.should.eq(1);
       layers(osm)[0].should.be.an.instanceof(L.CircleMarker);
     });
-  
+
     it("creates a Rectangle for a changeset", async function () {
       var osm = new L.OSM.DataLayer(fixture("changeset"), {asynchronous: true});
       await sleep(1);
       layers(osm).length.should.eq(1);
       layers(osm)[0].should.be.an.instanceof(L.Rectangle);
     });
-  
+
     it("sets the feature property on a layer", async function () {
       var osm = new L.OSM.DataLayer(fixture("node"), {asynchronous: true});
       await sleep(1);
       layers(osm)[0].feature.should.have.property("type", "node");
       layers(osm)[0].feature.should.have.property("id", "356552551");
     });
-  
+
     it("sets a way's style", async function () {
       var osm = new L.OSM.DataLayer(fixture("way"), {styles: {way: {color: "red"}}, asynchronous: true});
       await sleep(1);
       layers(osm)[20].options.should.have.property("color", "red");
     });
-  
+
     it("sets an area's style", async function () {
       var osm = new L.OSM.DataLayer(fixture("area"), {styles: {area: {color: "green"}}, asynchronous: true});
       await sleep(1);
       layers(osm)[14].options.should.have.property("color", "green");
     });
-  
+
     it("sets a node's style", async function () {
       var osm = new L.OSM.DataLayer(fixture("node"), {styles: {node: {color: "blue"}}, asynchronous: true});
       await sleep(1);
@@ -219,22 +219,22 @@ describe("L.OSM.DataLayer", function () {
     var layer = new L.OSM.DataLayer();
 
     it("returns true when the node is not in any ways", function () {
-      layer.interestingNode({}, [], []).should.be.true;
+      layer.interestingNode({id: 1}, {}, {}).should.be.true;
     });
 
     it("returns true when the node has an interesting tag", function () {
-      var node = {tags: {interesting: true}};
-      layer.interestingNode(node, [{nodes: [node]}], []).should.be.true;
+      var node = {id: 1, tags: {interesting: true}};
+      layer.interestingNode(node, {1: true}, {1: true}).should.be.true;
     });
 
     it("returns false when the node is used in a way and has uninteresting tags", function () {
-      var node = {tags: {source: 'who cares?'}};
-      layer.interestingNode(node, [{nodes: [node]}], []).should.be.false;
+      var node = {id: 1, tags: {source: 'who cares?'}};
+      layer.interestingNode(node, {1: true}, {}).should.be.false;
     });
 
     it("returns true when the node is used in a way and is used in a relation", function () {
-      var node = {};
-      layer.interestingNode(node, [{nodes: [node]}], [{members: [node]}]).should.be.true;
+      var node = {id: 1};
+      layer.interestingNode(node, {1: true}, {1: true}).should.be.true;
     });
   });
 });
