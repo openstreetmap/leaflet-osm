@@ -14,9 +14,9 @@
     "leaflet": "0.6"
   },
   "devDependencies": {
-    "mocha": "^10.7.3",
     "chai": "^4.2.0",
-    "jsdom": "^16.2.2"
-  },
-  "optionalDependencies": {}
+    "jsdom": "^16.2.2",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^10.7.3"
+  }
 }
