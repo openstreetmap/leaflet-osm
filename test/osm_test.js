@@ -69,10 +69,10 @@ describe("L.OSM.TracestrackTopo", function () {
 
 describe("L.OSM.DataLayer", function () {
   function fixture(name) {
-    var fs = require("fs"),
-      data = document.createElement("div");
-    data.innerHTML = fs.readFileSync(__dirname + "/fixtures/" + name + ".xml");
-    return data;
+    var fs = require("fs");
+    var contents = fs.readFileSync(__dirname + "/fixtures/" + name + ".xml", "utf8");
+    var dom = new jsdom.JSDOM(contents, { contentType: "text/xml"});
+    return dom.window.document;
   }
 
   function layers(layerGroup) {
@@ -93,14 +93,14 @@ describe("L.OSM.DataLayer", function () {
 
   it("creates a Polyline for a way", function () {
     var osm = new L.OSM.DataLayer(fixture("way"));
-    layers(osm).length.should.eq(21);
-    layers(osm)[20].should.be.an.instanceof(L.Polyline);
+    layers(osm).length.should.eq(1);
+    layers(osm)[0].should.be.an.instanceof(L.Polyline);
   });
 
   it("creates a Polygon for an area", function () {
     var osm = new L.OSM.DataLayer(fixture("area"));
-    layers(osm).length.should.eq(15);
-    layers(osm)[14].should.be.an.instanceof(L.Polygon);
+    layers(osm).length.should.eq(1);
+    layers(osm)[0].should.be.an.instanceof(L.Polygon);
   });
 
   it("creates a CircleMarker for an interesting node", function () {
@@ -123,12 +123,12 @@ describe("L.OSM.DataLayer", function () {
 
   it("sets a way's style", function () {
     var osm = new L.OSM.DataLayer(fixture("way"), {styles: {way: {color: "red"}}});
-    layers(osm)[20].options.should.have.property("color", "red");
+    layers(osm)[0].options.should.have.property("color", "red");
   });
 
   it("sets an area's style", function () {
     var osm = new L.OSM.DataLayer(fixture("area"), {styles: {area: {color: "green"}}});
-    layers(osm)[14].options.should.have.property("color", "green");
+    layers(osm)[0].options.should.have.property("color", "green");
   });
 
   it("sets a node's style", function () {
@@ -150,15 +150,15 @@ describe("L.OSM.DataLayer", function () {
     it("creates a Polyline for a way", async function () {
       var osm = new L.OSM.DataLayer(fixture("way"), {asynchronous: true});
       await sleep(1);
-      layers(osm).length.should.eq(21);
-      layers(osm)[20].should.be.an.instanceof(L.Polyline);
+      layers(osm).length.should.eq(1);
+      layers(osm)[0].should.be.an.instanceof(L.Polyline);
     });
 
     it("creates a Polygon for an area", async function () {
       var osm = new L.OSM.DataLayer(fixture("area"), {asynchronous: true});
       await sleep(1);
-      layers(osm).length.should.eq(15);
-      layers(osm)[14].should.be.an.instanceof(L.Polygon);
+      layers(osm).length.should.eq(1);
+      layers(osm)[0].should.be.an.instanceof(L.Polygon);
     });
 
     it("creates a CircleMarker for an interesting node", async function () {
@@ -185,13 +185,13 @@ describe("L.OSM.DataLayer", function () {
     it("sets a way's style", async function () {
       var osm = new L.OSM.DataLayer(fixture("way"), {styles: {way: {color: "red"}}, asynchronous: true});
       await sleep(1);
-      layers(osm)[20].options.should.have.property("color", "red");
+      layers(osm)[0].options.should.have.property("color", "red");
     });
 
     it("sets an area's style", async function () {
       var osm = new L.OSM.DataLayer(fixture("area"), {styles: {area: {color: "green"}}, asynchronous: true});
       await sleep(1);
-      layers(osm)[14].options.should.have.property("color", "green");
+      layers(osm)[0].options.should.have.property("color", "green");
     });
 
     it("sets a node's style", async function () {
@@ -210,8 +210,8 @@ describe("L.OSM.DataLayer", function () {
 
     it("builds a way object", function () {
       var features = new L.OSM.DataLayer().buildFeatures(fixture("way"));
-      features.length.should.eq(21);
-      features[20].type.should.eq("way");
+      features.length.should.eq(1);
+      features[0].type.should.eq("way");
     });
   });
 
