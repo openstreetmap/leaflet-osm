@@ -62,7 +62,7 @@ describe("L.OSM.OPNVKarte", function () {
 
 describe("L.OSM.TracestrackTopo", function () {
   it("has the appropriate URL", function () {
-    new L.OSM.TracestrackTopo()._url.should.eq('https://tile.tracestrack.com/topo__/{z}/{x}/{y}.png?key={apikey}');
+    new L.OSM.TracestrackTopo()._url.should.eq('https://tile.tracestrack.com/topo__/{z}/{x}/{y}.webp?key={apikey}');
   });
 
   it("has the appropriate attribution", function () {
