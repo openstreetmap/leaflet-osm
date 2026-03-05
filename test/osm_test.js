@@ -32,7 +32,7 @@ describe("L.OSM.CyclOSM", function () {
 
 describe("L.OSM.CycleMap", function () {
   it("has the appropriate URL", function () {
-    new L.OSM.CycleMap()._url.should.eq('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}');
+    new L.OSM.CycleMap()._url.should.eq('https://api.thunderforest.com/cycle/{z}/{x}/{y}{r}.png?apikey={apikey}');
   });
 
   it("has the appropriate attribution", function () {
@@ -42,7 +42,7 @@ describe("L.OSM.CycleMap", function () {
 
 describe("L.OSM.TransportMap", function () {
   it("has the appropriate URL", function () {
-    new L.OSM.TransportMap()._url.should.eq('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}{r}.png?apikey={apikey}');
+    new L.OSM.TransportMap()._url.should.eq('https://api.thunderforest.com/transport/{z}/{x}/{y}{r}.png?apikey={apikey}');
   });
 
   it("has the appropriate attribution", function () {
